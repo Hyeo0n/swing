@@ -10,10 +10,10 @@ private:
     vector<pair<string, string>> nameTel;
 public:
 
-    //»ı¼ºÀÚ
+    //ìƒì„±ì
     Information(string n) : name(n) {}
 
-    //ÀÌ¸§°ú ÀüÈ­¹øÈ£ Ãß°¡(È¸¿ø°¡ÀÔ)
+    //ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ ì¶”ê°€(íšŒì›ê°€ì…)
     void addNameTel(string newName, string newTel) {
         nameTel.push_back(make_pair(newName, newTel));
     }
@@ -28,81 +28,81 @@ public:
         return nameTel;
     }
 
-    // ·Î±×ÀÎ ½Ã ÀÌ¸§°ú ÀüÈ­¹øÈ£°¡ ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+    // ë¡œê·¸ì¸ ì‹œ ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
     bool Check(vector<Information>* members, string* inputName, string* inputTel) {
         for (Information& member : *members) {
             for (auto& pair : member.getNameTel()) {
                 if (pair.first == *inputName && pair.second == *inputTel) {
-                    return true; //ÀÌ¸§°ú ÀüÈ­¹øÈ£°¡ ÀÏÄ¡ÇÑ °æ¿ì
+                    return true; //ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ê°€ ì¼ì¹˜í•œ ê²½ìš°
                 }
             }
 
         }
-        return false; //ÀÏÄ¡ÇÏ´Â Á¤º¸ ¾ø´Â °æ¿ì
+        return false; //ì¼ì¹˜í•˜ëŠ” ì •ë³´ ì—†ëŠ” ê²½ìš°
     }
-    //ÀÌ¹Ì µî·ÏµÈ È¸¿øÀÎÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+    //ì´ë¯¸ ë“±ë¡ëœ íšŒì›ì¸ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
     bool isRegistered(string newName, string newTel) {
         for (auto& pair : nameTel) {
             if (pair.first == newName && pair.second == newTel) {
-                return true; // ÀÌ¹Ì µî·ÏµÈ È¸¿øÀÎ °æ¿ì
+                return true; // ì´ë¯¸ ë“±ë¡ëœ íšŒì›ì¸ ê²½ìš°
             }
         }
-        return false; // µî·ÏµÇÁö ¾ÊÀº È¸¿øÀÎ °æ¿ì
+        return false; // ë“±ë¡ë˜ì§€ ì•Šì€ íšŒì›ì¸ ê²½ìš°
     }
 };
 
 int main(void) {
-    vector<Information> members; //È¸¿ø Á¤º¸¸¦ ÀúÀåÇÒ º¤ÅÍ
+    vector<Information> members; //íšŒì› ì •ë³´ë¥¼ ì €ì¥í•  ë²¡í„°
 
-    int choice = 0;  //ÃÊ±â È­¸é ¼±ÅÃ
+    int choice = 0;  //ì´ˆê¸° í™”ë©´ ì„ íƒ
     string name;
     string tel;
 
     while (true) {
         cout << endl << endl;
-        cout << "***** SWING È¸¿ø Á¤º¸ °ü¸® ÇÁ·Î±×·¥ *****";
+        cout << "***** SWING íšŒì› ì •ë³´ ê´€ë¦¬ í”„ë¡œê·¸ë¨ *****";
         cout << endl << endl;
-        cout << "1. È¸¿ø°¡ÀÔ" << endl;
-        cout << "2. ·Î±×ÀÎ" << endl;
-        cout << "3. È¸¿ø Á¤º¸ ¼öÁ¤" << endl;
-        cout << "4. Á¾·á" << endl << endl;
-        cout << "¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+        cout << "1. íšŒì›ê°€ì…" << endl;
+        cout << "2. ë¡œê·¸ì¸" << endl;
+        cout << "3. íšŒì› ì •ë³´ ìˆ˜ì •" << endl;
+        cout << "4. ì¢…ë£Œ" << endl << endl;
+        cout << "ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
         cin >> choice;
         cout << endl << endl;
 
         if (choice == 1) {
             cout << endl << endl;
-            cout << "***** È¸¿ø°¡ÀÔÀ» ÁøÇàÇÕ´Ï´Ù *****" << endl << endl;
-            cout << "ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ";
+            cout << "***** íšŒì›ê°€ì…ì„ ì§„í–‰í•©ë‹ˆë‹¤ *****" << endl << endl;
+            cout << "ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ";
             cin >> name;
             cout << endl;
-            cout << "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+            cout << "ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
             cin >> tel;
             cout << endl << endl;
 
-            bool duplicate = false;  //Áßº¹ È®ÀÎ
+            bool duplicate = false;  //ì¤‘ë³µ í™•ì¸
             for (Information& member : members) {
                 if (member.isRegistered(name, tel)) {
                     duplicate = true;
-                    cout << "ÀÌ¹Ì µî·ÏµÈ Á¤º¸ÀÔ´Ï´Ù." << endl;
+                    cout << "ì´ë¯¸ ë“±ë¡ëœ ì •ë³´ì…ë‹ˆë‹¤." << endl;
                     break;
                 }
             }
             if (!duplicate) {
                 Information newMember(name);
                 newMember.addNameTel(name, tel);
-                members.push_back(newMember);  //È¸¿ø Á¤º¸¸¦ º¤ÅÍ¿¡ Ãß°¡
-                cout << "È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.";
+                members.push_back(newMember);  //íšŒì› ì •ë³´ë¥¼ ë²¡í„°ì— ì¶”ê°€
+                cout << "íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.";
             }
         }
 
         else if (choice == 2) {
             cout << endl << endl;
-            cout << "***** ·Î±×ÀÎÀ» ÁøÇàÇÕ´Ï´Ù *****" << endl << endl;
-            cout << "ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ";
+            cout << "***** ë¡œê·¸ì¸ì„ ì§„í–‰í•©ë‹ˆë‹¤ *****" << endl << endl;
+            cout << "ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ";
             cin >> name;
             cout << endl;
-            cout << "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+            cout << "ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
             cin >> tel;
             cout << endl << endl;
 
@@ -110,30 +110,30 @@ int main(void) {
             if (Information(name).Check(&members, &name, &tel)) {
                 login = true;
                 cout << endl << endl;
-                cout << "·Î±×ÀÎÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.";
+                cout << "ë¡œê·¸ì¸ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.";
                 cout << endl << endl;
-                cout << " ****** SWING " << name << "´ÔÀ» ÀÀ¿øÇÕ´Ï´Ù ******" << endl;
+                cout << " ****** SWING " << name << "ë‹˜ì„ ì‘ì›í•©ë‹ˆë‹¤ ******" << endl;
             }
             else {
-                cout << "È¸¿ø Á¤º¸°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù." << endl << endl;
+                cout << "íšŒì› ì •ë³´ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl << endl;
             }
         }
         else if (choice == 3) {
             string newName, newTel;
             cout << endl << endl;
-            cout << "***** È¸¿ø Á¤º¸ ¼öÁ¤À» ÁøÇàÇÕ´Ï´Ù *****" << endl << endl;
-            cout << "ÇöÀç È¸¿ø Á¤º¸" << endl;
-            cout << "ÀÌ¸§: ";
+            cout << "***** íšŒì› ì •ë³´ ìˆ˜ì •ì„ ì§„í–‰í•©ë‹ˆë‹¤ *****" << endl << endl;
+            cout << "í˜„ì¬ íšŒì› ì •ë³´" << endl;
+            cout << "ì´ë¦„: ";
             cin >> name;
             cout << endl;
-            cout << "ÀüÈ­¹øÈ£: ";
+            cout << "ì „í™”ë²ˆí˜¸: ";
             cin >> tel;
             cout << endl << endl;
-            cout << "»õ·Î¿î È¸¿ø Á¤º¸" << endl;
-            cout << "ÀÌ¸§: ";
+            cout << "ìƒˆë¡œìš´ íšŒì› ì •ë³´" << endl;
+            cout << "ì´ë¦„: ";
             cin >> newName;
             cout << endl;
-            cout << "ÀüÈ­¹øÈ£: ";
+            cout << "ì „í™”ë²ˆí˜¸: ";
             cin >> newTel;
             cout << endl << endl;
 
@@ -145,14 +145,14 @@ int main(void) {
                 }
             }
             if (!duplicate) {
-                bool found = false;  //Æ¯Á¤ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â Ç×¸ñÀ» Ã£¾Ò´ÂÁö¸¦ ³ªÅ¸³»±â À§ÇÑ º¯¼ö ÃÊ±âÈ­
+                bool found = false;  //íŠ¹ì • ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” í•­ëª©ì„ ì°¾ì•˜ëŠ”ì§€ë¥¼ ë‚˜íƒ€ë‚´ê¸° ìœ„í•œ ë³€ìˆ˜ ì´ˆê¸°í™”
                 for (auto& member : members) {
                     for (auto& pair : member.getNameTel()) {
                         if (pair.first == name && pair.second == tel) {
                             pair.first = newName;
                             pair.second = newTel;
-                            found = true; //¸¸Á·ÇÏ´Â Ç×¸ñ Ã£À½
-                            cout << "È¸¿ø Á¤º¸ ¼öÁ¤ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù." << endl << endl;
+                            found = true; //ë§Œì¡±í•˜ëŠ” í•­ëª© ì°¾ìŒ
+                            cout << "íšŒì› ì •ë³´ ìˆ˜ì •ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤." << endl << endl;
                             break;
                         }
                     }
@@ -161,19 +161,19 @@ int main(void) {
                     }
                 }
                 if (!found) {
-                    cout << "ÇØ´çÇÏ´Â È¸¿ø Á¤º¸¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù." << endl;
+                    cout << "í•´ë‹¹í•˜ëŠ” íšŒì› ì •ë³´ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << endl;
                 }
             }
             else {
-                cout << "ÀÌ¹Ì µî·ÏµÈ È¸¿ø Á¤º¸ÀÔ´Ï´Ù." << endl;
+                cout << "ì´ë¯¸ ë“±ë¡ëœ íšŒì› ì •ë³´ì…ë‹ˆë‹¤." << endl;
             }
         }
         else if (choice == 4) {
-            cout << "SWING È¸¿ø Á¤º¸ °ü¸® ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù." << endl;
-           
+            cout << "SWING íšŒì› ì •ë³´ ê´€ë¦¬ í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
+            return 0;
         }
         else {
-            cout << "Á¤È®ÇÑ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+            cout << "ì •í™•í•œ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
             continue;
         }
     }
