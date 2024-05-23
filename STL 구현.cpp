@@ -16,8 +16,8 @@ class singleLinkedList {
 public: 
 	singleLinkedList();     //생성자 
 	~singleLinkedList();    //소멸자
-	void move(T element);    //이동
-	void print();       //출력
+	void push(T element);    //이동
+	void show();       //출력
 
 private:
 	Node<T>* head;   //head = 첫 번째 원소
@@ -42,9 +42,9 @@ singleLinkedList<T>::~singleLinkedList() {
 	}
 }
 
-//move 함수 정의
+//push 함수 정의
 template <typename T>
-void singleLinkedList<T>::move(T element) {
+void singleLinkedList<T>::push(T element) {
 	Node<T>* 다음노드 = new Node<T>(element);
 	if (tail == nullptr) {
 		head = tail = 다음노드;
@@ -55,9 +55,9 @@ void singleLinkedList<T>::move(T element) {
 	}
 }
 
-//print 함수 정의
+//show 함수 정의
 template <typename T>
-void singleLinkedList<T>::print() {
+void singleLinkedList<T>::show() {
 	Node<T>* 현재노드 = head;
 	while (현재노드 != nullptr) {
 		std::cout << 현재노드->value << " -> ";
@@ -69,12 +69,12 @@ void singleLinkedList<T>::print() {
 //main 함수
 int main() {
 	singleLinkedList<int>* idx = new singleLinkedList<int>();
-	idx->move(1);
-	idx->move(2);
-	idx->move(3);
-	idx->move(4);
-	idx->move(5);
-	idx->print();
+	idx->push(1);
+	idx->push(2);
+	idx->push(3);
+	idx->push(4);
+	idx->push(5);
+	idx->show();
 
 	delete idx;  //동적 메모리 해제
 
