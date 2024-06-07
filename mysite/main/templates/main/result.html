@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if result_list %}
+    {% for result in result_list %}
+    <p>{{result.content}}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SWING32</title>
+</head>
+<body>
+    <h1>Content</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>{{form.content}}</div>
+        <button type="submit">save</button>
+    </form>
+</body>
+</html>
